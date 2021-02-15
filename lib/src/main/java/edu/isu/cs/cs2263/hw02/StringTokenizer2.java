@@ -5,6 +5,8 @@ public class StringTokenizer2 extends StringTokenizer implements PushbackTokeniz
 
     //To get the pushback to work, we need to count how many times nextToken is called. I think.
     int tokens_called;
+    String string;
+    String delimeter;
 
 
     //Here are the constructors. It only has two, unlike the built-in StringTokenizer, so we will have to declare
@@ -33,10 +35,9 @@ public class StringTokenizer2 extends StringTokenizer implements PushbackTokeniz
     //pushback basically needs to set the nextToken method back a step so that the last token read can be read again
     @Override
     public void pushback() {
-
-//        StringTokenizer2 replacement = new StringTokenizer2(super.str, super.delim);
-//        for(int i = 0; i < tokens_called; i++){
-//            nextToken();
-//        }
+        StringTokenizer2 replacement = new StringTokenizer2(string, delimeter);
+        for(int i = 0; i < tokens_called; i++){
+            nextToken();
+        }
     }
 }
