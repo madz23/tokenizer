@@ -8,6 +8,8 @@ public class Driver {
         while (token.hasMoreTokens()) {
             System.out.println(token.nextToken());
         }
+        token.pushback();
+        System.out.println(token.nextToken());
     }
 
 }

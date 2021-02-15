@@ -3,6 +3,10 @@ import java.util.StringTokenizer;
 
 public class StringTokenizer2 extends StringTokenizer implements PushbackTokenizer  {
 
+    //To get the pushback to work, we need to count how many times nextToken is called. I think.
+    int tokens_called;
+
+
     //Here are the constructors. It only has two, unlike the built-in StringTokenizer, so we will have to declare
     //delimiters every time
 
@@ -17,6 +21,7 @@ public class StringTokenizer2 extends StringTokenizer implements PushbackTokeniz
 
     @Override
     public String nextToken() {
+        tokens_called += 1;
         return super.nextToken();
     }
 
@@ -29,5 +34,9 @@ public class StringTokenizer2 extends StringTokenizer implements PushbackTokeniz
     @Override
     public void pushback() {
 
+//        StringTokenizer2 replacement = new StringTokenizer2(super.str, super.delim);
+//        for(int i = 0; i < tokens_called; i++){
+//            nextToken();
+//        }
     }
 }
